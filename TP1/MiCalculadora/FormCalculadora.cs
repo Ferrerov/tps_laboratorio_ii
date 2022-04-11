@@ -7,15 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 
 namespace MiCalculadora
 {
-    public partial class Form1 : Form
+    public partial class FormCalculadora : Form
     {
-        public Form1()
+        public FormCalculadora()
         {
             InitializeComponent();
         }
 
+        private void FormCalculadora_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
