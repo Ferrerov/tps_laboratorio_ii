@@ -71,7 +71,7 @@ namespace Entidades
 
                 for (int i = longitud - 1; i > -1; i--)
                 {
-                    string auxBinario = binario[i - longitud - 1].ToString();
+                    string auxBinario = binario[longitud - i - 1].ToString();
                     double auxNumero = double.Parse(auxBinario);
                     resultado += auxNumero * Math.Pow(2, i);
                 }
