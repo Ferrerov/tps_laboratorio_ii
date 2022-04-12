@@ -134,7 +134,7 @@ namespace MiCalculadora
             this.cmbOperador.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbOperador.FormattingEnabled = true;
             this.cmbOperador.Items.AddRange(new object[] {
-            "",
+            " ",
             "+",
             "-",
             "*",

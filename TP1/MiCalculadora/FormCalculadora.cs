@@ -18,11 +18,11 @@ namespace MiCalculadora
             InitializeComponent();
         }
 
-        private void FormCalculadora_Load(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
+        #region Metodos
 
+        /// <summary>
+        /// Reestablece los valores de la calculadora a sus valores por defecto
+        /// </summary>
         private void Limpiar()
         {
             this.lblResultado.Text = "";
@@ -31,6 +31,13 @@ namespace MiCalculadora
             this.cmbOperador.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Toma los valores pasados por parametro y llama a la funcion Operar de la clase Calculadora para relaizar la operacion
+        /// </summary>
+        /// <param name="numero1"></param> Primer numero
+        /// <param name="numero2"></param> Segundo numero
+        /// <param name="operador"></param> Operador a utilizar
+        /// <returns></returns>
         private static double Operar(string numero1, string numero2, string operador)
         {
             Operando num1 = new Operando(numero1);
@@ -39,16 +46,24 @@ namespace MiCalculadora
             double resultado = Calculadora.Operar(num1, num2, char.Parse(operador));
             return resultado;
         }
+        #endregion 
 
+        private void FormCalculadora_Load(object sender, EventArgs e)
+        {
+            this.Limpiar();
+        }
+
+        #region Eventos
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            if(cmbOperador.Text != "")
-            {
-                double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
-                this.lblResultado.Text = resultado.ToString();
+            double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
+            this.lblResultado.Text = resultado.ToString();
 
-                this.lstOperaciones.Items.Add($"{txtNumero1.Text} {cmbOperador.Text} {txtNumero2.Text} = {lblResultado.Text}");
-            } 
+            if(cmbOperador.Text == " ")
+            {
+                cmbOperador.SelectedItem = "+";
+            }
+            this.lstOperaciones.Items.Add($"{txtNumero1.Text} {cmbOperador.Text} {txtNumero2.Text} = {lblResultado.Text}");
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -72,6 +87,7 @@ namespace MiCalculadora
         {
             this.Close();
         }
+        #endregion
 
         private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
         {
