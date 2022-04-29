@@ -9,6 +9,12 @@ namespace Entidades
     public class Ciclomotor : Vehiculo
     {
         #region Constructores
+        /// <summary>
+        /// Constructor de Ciclomotor
+        /// </summary>
+        /// <param name="marca"></param> Marca del Ciclomotor
+        /// <param name="chasis"></param> Chasis del Ciclomotor
+        /// <param name="color"></param> Color del Ciclomotor
         public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) 
             : base(marca,chasis,color)
         {
@@ -29,6 +35,10 @@ namespace Entidades
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// Sobreescritura del metodo Mostrar, retorna los datos del Ciclomotor
+        /// </summary>
+        /// <returns></returns>
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();

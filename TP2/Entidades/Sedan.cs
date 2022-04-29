@@ -17,16 +17,23 @@ namespace Entidades
 
         #region Constructores
         /// <summary>
-        /// Por defecto, TIPO será CuatroPuertas
+        /// Constructor de Sedan
         /// </summary>
-        /// <param name="marca"></param>
-        /// <param name="chasis"></param>
-        /// <param name="color"></param>
+        /// <param name="marca"></param> Marca del Sedan
+        /// <param name="chasis"></param> Chasis del Sedan
+        /// <param name="color"></param> Color del Sedan
+        /// <param name="tipoPuertas"></param>
         public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipoPuertas)
             : base(marca, chasis, color)
         {
             tipo = tipoPuertas;
         }
+        /// <summary>
+        /// Por defecto, TIPO será CuatroPuertas
+        /// </summary>
+        /// <param name="marca"></param> Marca del Sedan
+        /// <param name="chasis"></param> Chasis del Sedan
+        /// <param name="color"></param> Color del Sedan
         public Sedan(EMarca marca, string chasis, ConsoleColor color)
             : this(marca, chasis, color, ETipo.CuatroPuertas)
         {
@@ -47,6 +54,10 @@ namespace Entidades
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// Sobreescritura del metodo Mostrar, retorna los datos del Sedan
+        /// </summary>
+        /// <returns></returns>
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();

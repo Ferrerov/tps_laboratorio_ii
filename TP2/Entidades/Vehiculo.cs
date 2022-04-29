@@ -29,6 +29,12 @@ namespace Entidades
         #endregion
 
         #region Constructores
+        /// <summary>
+        /// Constructor de Vehiculo que inicializa los atributos marca, chasis y color
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="chasis"></param>
+        /// <param name="color"></param>
         protected Vehiculo(EMarca marca, string chasis, ConsoleColor color)
         {
             this.marca = marca;
@@ -56,6 +62,10 @@ namespace Entidades
         #endregion
 
         #region Sobrecargas
+        /// <summary>
+        /// Sobrecarga al operador string, retornando todos los datos de Vehiculo
+        /// </summary>
+        /// <param name="p"></param>
         public static explicit operator string(Vehiculo p)
         {
             StringBuilder sb = new StringBuilder();
