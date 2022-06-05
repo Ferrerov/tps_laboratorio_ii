@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Forms
 {
-    public partial class Form1 : Form
+    public partial class FormNuevaCompra : Form
     {
-        public Form1()
+        public FormNuevaCompra()
         {
             InitializeComponent();
         }
-
     }
 }
