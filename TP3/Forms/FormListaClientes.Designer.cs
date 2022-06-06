@@ -30,8 +30,9 @@ namespace Forms
         private void InitializeComponent()
         {
             this.dgvListaClientes = new System.Windows.Forms.DataGridView();
-            this.txtNombredelCliente = new System.Windows.Forms.TextBox();
+            this.txtDniCliente = new System.Windows.Forms.TextBox();
             this.lblDniDelCliente = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,12 +45,12 @@ namespace Forms
             this.dgvListaClientes.Size = new System.Drawing.Size(343, 340);
             this.dgvListaClientes.TabIndex = 0;
             // 
-            // txtNombredelCliente
+            // txtDniCliente
             // 
-            this.txtNombredelCliente.Location = new System.Drawing.Point(141, 48);
-            this.txtNombredelCliente.Name = "txtNombredelCliente";
-            this.txtNombredelCliente.Size = new System.Drawing.Size(214, 23);
-            this.txtNombredelCliente.TabIndex = 0;
+            this.txtDniCliente.Location = new System.Drawing.Point(141, 48);
+            this.txtDniCliente.Name = "txtDniCliente";
+            this.txtDniCliente.Size = new System.Drawing.Size(131, 23);
+            this.txtDniCliente.TabIndex = 0;
             // 
             // lblDniDelCliente
             // 
@@ -61,12 +62,23 @@ namespace Forms
             this.lblDniDelCliente.TabIndex = 9;
             this.lblDniDelCliente.Text = "Dni del cliente:";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(278, 43);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(78, 31);
+            this.btnBuscar.TabIndex = 11;
+            this.btnBuscar.Text = "BUSCAR";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // FormListaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 450);
-            this.Controls.Add(this.txtNombredelCliente);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtDniCliente);
             this.Controls.Add(this.lblDniDelCliente);
             this.Controls.Add(this.dgvListaClientes);
             this.Name = "FormListaClientes";
@@ -80,7 +92,8 @@ namespace Forms
         #endregion
 
         private System.Windows.Forms.DataGridView dgvListaClientes;
-        private System.Windows.Forms.TextBox txtNombredelCliente;
+        private System.Windows.Forms.TextBox txtDniCliente;
         private System.Windows.Forms.Label lblDniDelCliente;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

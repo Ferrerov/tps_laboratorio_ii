@@ -12,32 +12,19 @@ namespace Entidades
         private int dniCliente;
         private double saldo;
         private List<Cliente> clientes;
-        private List<Compra> compras;
 
         #region Propiedades
         public string Nombre { get => nombre; set => nombre = value; }
-        public double Saldo
-        {
-            get
-            {
-                return ObtenerSaldo(this);
-            }
-            set
-            {
-                this.saldo = value;
-            }
-        }
-
         public List<Cliente> Clientes { get => clientes; set => clientes = value; }
         public int DniCliente { get => dniCliente; set => dniCliente = value; }
+        public double Saldo { get => saldo; set => saldo = value; }
 
         #endregion
 
         public Cliente()
         {
             this.clientes = new List<Cliente>();
-            this.compras = new List<Compra>();
-    }
+        }
         public Cliente(string nombre, int dniCliente, double saldo)
             : this()
         {
@@ -46,7 +33,7 @@ namespace Entidades
             this.saldo = saldo;
         }
 
-        private double ObtenerSaldo(Cliente cliente)
+        public double ObtenerSaldo(Cliente cliente, List<Compra> compras)
         {
             double saldoActual = this.saldo;
 
@@ -81,16 +68,6 @@ namespace Entidades
                 }
             }
             return null;
-        }
-
-        public void AgregarCompra(Compra compra)
-        {
-            this.compras.Add(compra);
-        }
-
-        public void BorrarCompra(Compra compra)
-        {
-            this.compras.Remove(compra);
         }
          
         public bool CargarNuevoCliente(Cliente cliente)

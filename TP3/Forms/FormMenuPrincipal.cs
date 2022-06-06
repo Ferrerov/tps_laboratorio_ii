@@ -59,8 +59,21 @@ namespace Forms
 
         private void btnListadoClientes_Click(object sender, EventArgs e)
         {
-            FormListaClientes formListaClientes = new FormListaClientes(this.listaDeClientes);
-            formListaClientes.ShowDialog();
+            if(this.listaDeClientes.Count > 0)
+            {
+                FormListaClientes formListaClientes = new FormListaClientes(this.listaDeClientes);
+                formListaClientes.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay clientes en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnNuevaCompra_Click(object sender, EventArgs e)
+        {
+            FormNuevaCompra formNuevaCompra = new FormNuevaCompra();
+            formNuevaCompra.ShowDialog();
         }
     }
 }

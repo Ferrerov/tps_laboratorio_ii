@@ -31,7 +31,7 @@ namespace Forms
         {
             this.btnListadoClientes = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnNuevaCompra = new System.Windows.Forms.Button();
             this.btnModificarCliente = new System.Windows.Forms.Button();
             this.btnEliminarCliente = new System.Windows.Forms.Button();
             this.btnNuevoCliente = new System.Windows.Forms.Button();
@@ -57,16 +57,17 @@ namespace Forms
             this.button4.Text = "VER LISTADO DE COMPRAS";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnNuevaCompra
             // 
-            this.button5.BackColor = System.Drawing.Color.Turquoise;
-            this.button5.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.Location = new System.Drawing.Point(12, 179);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(282, 76);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "NUEVA COMPRA";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnNuevaCompra.BackColor = System.Drawing.Color.Turquoise;
+            this.btnNuevaCompra.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnNuevaCompra.Location = new System.Drawing.Point(12, 183);
+            this.btnNuevaCompra.Name = "btnNuevaCompra";
+            this.btnNuevaCompra.Size = new System.Drawing.Size(282, 72);
+            this.btnNuevaCompra.TabIndex = 6;
+            this.btnNuevaCompra.Text = "NUEVA COMPRA";
+            this.btnNuevaCompra.UseVisualStyleBackColor = false;
+            this.btnNuevaCompra.Click += new System.EventHandler(this.btnNuevaCompra_Click);
             // 
             // btnModificarCliente
             // 
@@ -116,14 +117,14 @@ namespace Forms
             this.Controls.Add(this.btnNuevoCliente);
             this.Controls.Add(this.btnEliminarCliente);
             this.Controls.Add(this.btnModificarCliente);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnNuevaCompra);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnListadoClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tebas - Club de Vinos";
+            this.Text = "Tebas - Venta de Vinos";
             this.ResumeLayout(false);
 
         }
@@ -131,7 +132,7 @@ namespace Forms
         #endregion
         private System.Windows.Forms.Button btnListadoClientes;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnNuevaCompra;
         private System.Windows.Forms.Button btnModificarCliente;
         private System.Windows.Forms.Button btnEliminarCliente;
         private System.Windows.Forms.Button btnNuevoCliente;
