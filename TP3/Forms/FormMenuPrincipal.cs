@@ -61,8 +61,11 @@ namespace Forms
         {
             if(this.listaDeClientes.Count > 0)
             {
-                FormListaClientes formListaClientes = new FormListaClientes(this.listaDeClientes);
-                formListaClientes.ShowDialog();
+                FormListaClientes formListaClientes = new FormListaClientes(this.listaDeClientes, "Salir", "Ver");
+                if(formListaClientes.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show(formListaClientes.clienteSeleccionado.Nombre, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
@@ -72,7 +75,8 @@ namespace Forms
 
         private void btnNuevaCompra_Click(object sender, EventArgs e)
         {
-            FormNuevaCompra formNuevaCompra = new FormNuevaCompra();
+            Cliente cliente = new Cliente(); //sacar
+            FormNuevaCompra formNuevaCompra = new FormNuevaCompra(cliente);
             formNuevaCompra.ShowDialog();
         }
     }
