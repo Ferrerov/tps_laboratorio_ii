@@ -13,16 +13,21 @@ namespace Forms
 {
     public partial class FormDatosCliente : Form
     {
-        Cliente clienteAux;
+        Cliente clienteModificar;
+        public Cliente clienteNuevo;
         public FormDatosCliente(string titulo, Cliente cliente)
         {
             InitializeComponent();
-            lblTitulo.Text = titulo;
-            txtNombre.Text = cliente.Nombre;
-            txtDni.Text = cliente.Dni.ToString();
-            txtTelefono.Text = cliente.Telefono.ToString();
-            txtDireccion.Text = cliente.Direccion;
-            txtEmail.Text = cliente.Email;
+            if(cliente is not null)
+            {
+                lblTitulo.Text = titulo;
+                txtNombre.Text = cliente.Nombre;
+                txtDni.Text = cliente.Dni.ToString();
+                txtTelefono.Text = cliente.Telefono.ToString();
+                txtDireccion.Text = cliente.Direccion;
+                txtEmail.Text = cliente.Email;
+                clienteModificar = cliente;
+            }
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -35,9 +40,22 @@ namespace Forms
                     string.IsNullOrEmpty(txtDireccion.Text) ||
                     string.IsNullOrEmpty(txtEmail.Text)))
                 {
-                    cliente = new Cliente(txtNombre.Text, long.Parse(txtDni.Text), long.Parse(txtTelefono.Text), txtDireccion.Text, txtEmail.Text);
-                    MessageBox.Show("Cliente cargado correctamente", "Carga exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.DialogResult = DialogResult.OK;
+                    if(clienteModificar is not null)
+                    {
+                        clienteModificar.Nombre = txtNombre.Text;
+                        clienteModificar.Dni = long.Parse(txtDni.Text);
+                        clienteModificar.Telefono = long.Parse(txtTelefono.Text);
+                        clienteModificar.Direccion = txtDireccion.Text;
+                        clienteModificar.Email = txtEmail.Text;
+                        MessageBox.Show("Cliente modificado correctamente", "Modificacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        clienteNuevo = new Cliente(txtNombre.Text, long.Parse(txtDni.Text), long.Parse(txtTelefono.Text), txtDireccion.Text, txtEmail.Text);
+                        MessageBox.Show("Cliente cargado correctamente", "Carga exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                    } 
                 }
             }
             catch(Exception)

@@ -25,8 +25,7 @@ namespace Forms
             FormGestionarClientes formGestionarClientes = new FormGestionarClientes(this.listaDeClientes);
             formGestionarClientes.ShowDialog();
             this.listaDeClientes = formGestionarClientes.listaDeClientes;
-            formGestionarClientes.Dispose();
-
+            formGestionarClientes.Dispose();      
         }
     }
 }

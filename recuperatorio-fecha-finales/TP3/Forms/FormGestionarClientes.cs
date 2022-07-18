@@ -14,35 +14,35 @@ namespace Forms
     public partial class FormGestionarClientes : Form
     {
         public List<Cliente> listaDeClientes;
+        private BindingSource source;
         public FormGestionarClientes(List<Cliente> listaDeClientes)
         {
             InitializeComponent();
             this.listaDeClientes = listaDeClientes;
+            source = new BindingSource();
+            CargarListaDeClientes();
+
         }
 
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
-            FormDatosCliente formDatoCliente = new FormDatosCliente("NUEVO CLIENTE");
+            FormDatosCliente formDatoCliente = new FormDatosCliente("NUEVO CLIENTE 88", null);
             if(formDatoCliente.ShowDialog() == DialogResult.OK)
             {
-                listaDeClientes.Add(formDatoCliente.cliente);
+                listaDeClientes.Add(formDatoCliente.clienteNuevo);
                 CargarListaDeClientes();
             }
         }
         private void CargarListaDeClientes()
         {
-            this.dgvListaClientes.DataSource = null;
-            this.dgvListaClientes.DataSource = this.listaDeClientes;
-            dgvListaClientes.Columns[0].Width = 180;
-            dgvListaClientes.Columns[1].Width = 57;
-            dgvListaClientes.Columns[2].Width = 90;
-            dgvListaClientes.Columns[3].Width = 200;
-            dgvListaClientes.Columns[4].Width = 189;
+            //this.dgvListaClientes.DataSource = null;
+            source.DataSource = this.listaDeClientes;
+            this.dgvListaClientes.DataSource = source;
+            source.ResetBindings(false);
         }
 
         private void txtBoxBuscar_TextChanged(object sender, EventArgs e)
         {
-
             foreach (DataGridViewRow row in dgvListaClientes.Rows)
             {
                 dgvListaClientes.CurrentCell = null;
@@ -59,11 +59,26 @@ namespace Forms
 
         private void btnModificarCliente_Click(object sender, EventArgs e)
         {
-            FormDatosCliente formDatoCliente = new FormDatosCliente("MODIFICAR CLIENTE");
-            //Cliente clienteAux = ((Cliente)this.dgvListaClientes.CurrentRow.DataBoundItem);
-            if (formDatoCliente.ShowDialog() == DialogResult.OK)
+            try
             {
-                listaDeClientes.Add(formDatoCliente.cliente);
+                FormDatosCliente formDatoCliente = new FormDatosCliente("MODIFICAR CLIENTE", (Cliente)this.dgvListaClientes.CurrentRow.DataBoundItem);
+                if (formDatoCliente.ShowDialog() == DialogResult.OK)
+                {
+                    CargarListaDeClientes();
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("No hay ningun cliente seleccionado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEliminarCliente_Click(object sender, EventArgs e)
+        {
+            Cliente clienteEliminar = (Cliente)this.dgvListaClientes.CurrentRow.DataBoundItem;
+            if (MessageBox.Show($"Seguro que desea eliminar el cliente {clienteEliminar.Nombre}?", "Eliminar cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                listaDeClientes.Remove(clienteEliminar);
                 CargarListaDeClientes();
             }
         }
