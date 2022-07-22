@@ -13,6 +13,10 @@ namespace Biblioteca
         #endregion
 
         #region Constructores
+        public Cliente()
+        {
+
+        }
         public Cliente(string nombre, long dni, long telefono, string direccion, string email)
         {
             this.nombre = nombre;

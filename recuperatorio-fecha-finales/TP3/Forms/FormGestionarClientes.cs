@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca;
+using Archivos;
+
 
 namespace Forms
 {
@@ -15,18 +17,24 @@ namespace Forms
     {
         public List<Cliente> listaDeClientes;
         private BindingSource source;
+        public Cliente clienteSeleccionado;
         public FormGestionarClientes(List<Cliente> listaDeClientes)
         {
             InitializeComponent();
             this.listaDeClientes = listaDeClientes;
             source = new BindingSource();
             CargarListaDeClientes();
-
+            this.dgvListaClientes.RowHeadersVisible = false;
+            this.dgvListaClientes.Columns["Nombre"].Width = 322;
+            this.dgvListaClientes.Columns["Direccion"].Width = 300;
+            this.dgvListaClientes.Columns["Dni"].Width = 101;
+            this.dgvListaClientes.Columns["Telefono"].Width = 127;
+            this.dgvListaClientes.Columns["Email"].Width = 305;
         }
 
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
-            FormDatosCliente formDatoCliente = new FormDatosCliente("NUEVO CLIENTE 88", null);
+            FormDatosCliente formDatoCliente = new FormDatosCliente("NUEVO CLIENTE", null);
             if(formDatoCliente.ShowDialog() == DialogResult.OK)
             {
                 listaDeClientes.Add(formDatoCliente.clienteNuevo);
@@ -35,7 +43,6 @@ namespace Forms
         }
         private void CargarListaDeClientes()
         {
-            //this.dgvListaClientes.DataSource = null;
             source.DataSource = this.listaDeClientes;
             this.dgvListaClientes.DataSource = source;
             source.ResetBindings(false);
@@ -80,6 +87,36 @@ namespace Forms
             {
                 listaDeClientes.Remove(clienteEliminar);
                 CargarListaDeClientes();
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            if(this.dgvListaClientes.SelectedRows.Count > 0)
+            {
+                clienteSeleccionado = (Cliente)this.dgvListaClientes.CurrentRow.DataBoundItem;
+            }
+            this.Close();
+        }
+
+        private void btnGuardarListado_Click(object sender, EventArgs e)
+        {
+            if(this.listaDeClientes.Count > 0)
+            {
+                SerializadorXml<List<Cliente>> serializador = new SerializadorXml<List<Cliente>>();
+                if (serializador.Guardar(AppDomain.CurrentDomain.BaseDirectory, "listaClientes.xml", this.listaDeClientes))
+                {
+                    MessageBox.Show("Archivo guardado");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Archivo no guardado");
             }
         }
     }
