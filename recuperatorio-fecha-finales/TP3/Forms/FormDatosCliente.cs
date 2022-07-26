@@ -87,7 +87,7 @@ namespace Forms
         }
         public void ValidarDniCliente(string strDniCliente)
         {
-            if (!((strDniCliente.Length > 8 || strDniCliente.Length < 9) && EsNumerico(strDniCliente)))
+            if (!((strDniCliente.Length > 6  && strDniCliente.Length < 9) && EsNumerico(strDniCliente)))
             {
                 throw new DniInvalidoException("Ingrese un dni válido.");
             }
