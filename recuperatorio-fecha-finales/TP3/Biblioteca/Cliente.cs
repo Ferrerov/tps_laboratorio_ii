@@ -41,11 +41,32 @@ namespace Biblioteca
         #endregion
 
         #region Metodos
-
+        public static bool ExisteElementoEnLaLista(ListadoGenerico<Cliente> listadoGenerico, Cliente cliente)
+        {
+            foreach (Cliente clienteAux in listadoGenerico.listado)
+            {
+                if(clienteAux == cliente)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         #endregion
 
         #region Sobrecargas
-
+        public static bool operator ==(Cliente clienteUno, Cliente clienteDos)
+        {
+            if(clienteUno.dni == clienteDos.dni)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator !=(Cliente clienteUno, Cliente clienteDos)
+        { 
+            return !(clienteUno == clienteDos);
+        }
         #endregion
     }
 }

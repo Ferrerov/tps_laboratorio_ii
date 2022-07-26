@@ -84,31 +84,44 @@ namespace Forms
         }
         private void CargarListaDeServicios()
         {
-            OrdenarListadoPorFechaAscendente(this.listaDeServicios.listado, out this.listaDeServicios.listado);
-            sourceClientes.DataSource = this.listaDeServicios.listado;
-            this.dgvListaServicios.DataSource = sourceClientes;
-            this.dgvListaServicios.RowHeadersVisible = false;
-            this.dgvListaServicios.Columns["Fecha"].Visible = false;
-            this.dgvListaServicios.Columns["Costo"].Visible = false;
-            this.dgvListaServicios.Columns["Completado"].Visible = false;
-            this.dgvListaServicios.Columns["DniCliente"].Visible = false;
-            this.dgvListaServicios.Columns["Dispositivo"].Visible = false;
-            this.dgvListaServicios.Columns["Id"].Width = 50;
-            this.dgvListaServicios.Columns["FechaEntrega"].Width = 113;
-            this.dgvListaServicios.Columns["Detalle"].Width = 410;
-            this.dgvListaServicios.Columns["FechaEntrega"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            sourceClientes.ResetBindings(false);
+            List<Servicio> listadoAux;
+            if(OrdenarListadoPorFechaAscendente(this.listaDeServicios.listado, out listadoAux))
+            {
+                this.listaDeServicios.listado = listadoAux;
+                sourceClientes.DataSource = this.listaDeServicios.listado;
+                this.dgvListaServicios.DataSource = sourceClientes;
+                this.dgvListaServicios.RowHeadersVisible = false;
+                this.dgvListaServicios.Columns["Fecha"].Visible = false;
+                this.dgvListaServicios.Columns["Costo"].Visible = false;
+                this.dgvListaServicios.Columns["Completado"].Visible = false;
+                this.dgvListaServicios.Columns["DniCliente"].Visible = false;
+                this.dgvListaServicios.Columns["Dispositivo"].Visible = false;
+                this.dgvListaServicios.Columns["Id"].Width = 50;
+                this.dgvListaServicios.Columns["FechaEntrega"].Width = 113;
+                this.dgvListaServicios.Columns["Detalle"].Width = 410;
+                this.dgvListaServicios.Columns["FechaEntrega"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                sourceClientes.ResetBindings(false);
+            }         
         }
 
-        private static void OrdenarListadoPorFechaAscendente(List<Servicio> listado, out List<Servicio> listadoOrdenado)
+        public static bool OrdenarListadoPorFechaAscendente(List<Servicio> listado, out List<Servicio> listadoOrdenado)
         {
-            IEnumerable<Servicio> query = listado.OrderBy(listado => listado.FechaEntrega);
-            List<Servicio> listadoAux = new List<Servicio>();
-            foreach (Servicio cliente in query)
+            if(listado is not null)
             {
-                listadoAux.Add(cliente);
+                IEnumerable<Servicio> query = listado.OrderBy(listado => listado.FechaEntrega);
+                List<Servicio> listadoAux = new List<Servicio>();
+                foreach (Servicio cliente in query)
+                {
+                    listadoAux.Add(cliente);
+                }
+                listadoOrdenado = listadoAux;
+                return true;
             }
-            listadoOrdenado = listadoAux;
+            else
+            {
+                listadoOrdenado = null;
+                return false;
+            }
         }
 
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)

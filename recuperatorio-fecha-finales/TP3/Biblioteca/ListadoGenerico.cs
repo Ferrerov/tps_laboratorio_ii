@@ -73,7 +73,7 @@ namespace Biblioteca
         {
             foreach (T elementoAux in listado.listado)
             {
-                if(elemento.Equals(elemento))
+                if(elementoAux.Equals(elemento))
                 {
                     return true;
                 }

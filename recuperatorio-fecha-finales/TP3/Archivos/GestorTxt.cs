@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Excepciones;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,9 +22,8 @@ namespace Archivos
             }
             catch(Exception)
             {
-
+                throw new ErrorArchivoException("Error al guardar el archivos .txt");
             }
-            return false;
         }
 
         public bool Leer(string path, string nombre, out string texto)
@@ -39,9 +39,8 @@ namespace Archivos
             }
             catch (Exception)
             {
-
+                throw new ErrorArchivoException("Error al guardar el archivos .txt");
             }
-            return false;
         }
     }
 }
