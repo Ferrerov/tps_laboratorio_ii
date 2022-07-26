@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca;
+using Excepciones;
 
 namespace Forms
 {
@@ -15,7 +17,8 @@ namespace Forms
     {
         Cliente clienteModificar;
         public Cliente clienteNuevo;
-        public FormDatosCliente(string titulo, Cliente cliente)
+        private int ultimoId;
+        public FormDatosCliente(string titulo, Cliente cliente, int ultimoId)
         {
             InitializeComponent();
             if(cliente is not null)
@@ -28,47 +31,84 @@ namespace Forms
                 txtEmail.Text = cliente.Email;
                 clienteModificar = cliente;
             }
+            else
+            {
+                this.ultimoId = ultimoId;
+            }
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!(string.IsNullOrEmpty(txtNombre.Text) ||
-                    string.IsNullOrEmpty(txtDni.Text) ||
-                    string.IsNullOrEmpty(txtTelefono.Text) ||
-                    string.IsNullOrEmpty(txtDireccion.Text) ||
-                    string.IsNullOrEmpty(txtEmail.Text)))
+                CampoVacio(txtNombre.Text);
+                CampoVacio(txtDni.Text);
+                CampoVacio(txtTelefono.Text);
+                CampoVacio(txtDireccion.Text);
+                CampoVacio(txtEmail.Text);
+                ValidarDniCliente(txtDni.Text);
+                EsNumerico(txtTelefono.Text);
+                if(clienteModificar is not null)
                 {
-                    if(clienteModificar is not null)
-                    {
-                        clienteModificar.Nombre = txtNombre.Text;
-                        clienteModificar.Dni = long.Parse(txtDni.Text);
-                        clienteModificar.Telefono = long.Parse(txtTelefono.Text);
-                        clienteModificar.Direccion = txtDireccion.Text;
-                        clienteModificar.Email = txtEmail.Text;
-                        MessageBox.Show("Cliente modificado correctamente", "Modificacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.DialogResult = DialogResult.OK;
-                    }
-                    else
-                    {
-                        clienteNuevo = new Cliente(txtNombre.Text, long.Parse(txtDni.Text), long.Parse(txtTelefono.Text), txtDireccion.Text, txtEmail.Text);
-                        MessageBox.Show("Cliente cargado correctamente", "Carga exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.DialogResult = DialogResult.OK;
-                    } 
+                    clienteModificar.Nombre = txtNombre.Text;
+                    clienteModificar.Dni = long.Parse(txtDni.Text);
+                    clienteModificar.Telefono = long.Parse(txtTelefono.Text);
+                    clienteModificar.Direccion = txtDireccion.Text;
+                    clienteModificar.Email = txtEmail.Text;
+                    MessageBox.Show("Cliente modificado correctamente", "Modificacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
                 }
+                else
+                {
+                    this.ultimoId++;
+                    clienteNuevo = new Cliente(ultimoId, txtNombre.Text, long.Parse(txtDni.Text), long.Parse(txtTelefono.Text), txtDireccion.Text, txtEmail.Text);
+                    MessageBox.Show("Cliente cargado correctamente", "Carga exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                } 
             }
-            catch(Exception)
+            catch(CampoVacioException ex)
             {
-                MessageBox.Show("Ingrese datos correctos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+            catch(DniInvalidoException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch(NoEsNumericoException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
             this.Dispose();
+        }
+        public void ValidarDniCliente(string strDniCliente)
+        {
+            if (!((strDniCliente.Length > 8 || strDniCliente.Length < 9) && EsNumerico(strDniCliente)))
+            {
+                throw new DniInvalidoException("Ingrese un dni válido.");
+            }
+        }
+        public void CampoVacio(string texto)
+        {
+            if (texto is null || texto == string.Empty)
+            {
+                throw new CampoVacioException("Complete todos los campos.");
+            }
+        }
+        public bool EsNumerico(string strNumero)
+        {
+            if (Regex.IsMatch(strNumero, @"^[a-zA-Z]+$"))
+            {
+                throw new NoEsNumericoException("Ingrese un valor numerico.");
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

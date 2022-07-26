@@ -30,11 +30,17 @@ namespace Forms
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.btnGestionarClientes = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAtender = new System.Windows.Forms.Button();
             this.dgvListaServicios = new System.Windows.Forms.DataGridView();
+            this.btnGestionarServicios = new System.Windows.Forms.Button();
+            this.picBoxLogo = new System.Windows.Forms.PictureBox();
+            this.lblProximosAEntregar = new System.Windows.Forms.Label();
+            this.btnGestionarArchivos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGestionarClientes
@@ -47,7 +53,7 @@ namespace Forms
             this.btnGestionarClientes.Location = new System.Drawing.Point(14, 221);
             this.btnGestionarClientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGestionarClientes.Name = "btnGestionarClientes";
-            this.btnGestionarClientes.Size = new System.Drawing.Size(328, 47);
+            this.btnGestionarClientes.Size = new System.Drawing.Size(339, 47);
             this.btnGestionarClientes.TabIndex = 13;
             this.btnGestionarClientes.Text = "GESTIONAR CLIENTES";
             this.btnGestionarClientes.UseVisualStyleBackColor = false;
@@ -60,10 +66,10 @@ namespace Forms
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(14, 276);
+            this.btnSalir.Location = new System.Drawing.Point(14, 386);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(328, 47);
+            this.btnSalir.Size = new System.Drawing.Size(339, 47);
             this.btnSalir.TabIndex = 14;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -79,7 +85,7 @@ namespace Forms
             this.btnAtender.Location = new System.Drawing.Point(12, 166);
             this.btnAtender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAtender.Name = "btnAtender";
-            this.btnAtender.Size = new System.Drawing.Size(328, 47);
+            this.btnAtender.Size = new System.Drawing.Size(341, 47);
             this.btnAtender.TabIndex = 15;
             this.btnAtender.Text = "ATENDER";
             this.btnAtender.UseVisualStyleBackColor = false;
@@ -102,7 +108,7 @@ namespace Forms
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvListaServicios.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaServicios.GridColor = System.Drawing.Color.Gray;
-            this.dgvListaServicios.Location = new System.Drawing.Point(346, 143);
+            this.dgvListaServicios.Location = new System.Drawing.Point(359, 48);
             this.dgvListaServicios.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvListaServicios.MultiSelect = false;
             this.dgvListaServicios.Name = "dgvListaServicios";
@@ -111,20 +117,78 @@ namespace Forms
             this.dgvListaServicios.RowHeadersWidth = 51;
             this.dgvListaServicios.RowTemplate.Height = 25;
             this.dgvListaServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaServicios.Size = new System.Drawing.Size(556, 270);
+            this.dgvListaServicios.Size = new System.Drawing.Size(702, 385);
             this.dgvListaServicios.TabIndex = 16;
+            // 
+            // btnGestionarServicios
+            // 
+            this.btnGestionarServicios.BackColor = System.Drawing.Color.DimGray;
+            this.btnGestionarServicios.FlatAppearance.BorderSize = 0;
+            this.btnGestionarServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionarServicios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGestionarServicios.ForeColor = System.Drawing.Color.White;
+            this.btnGestionarServicios.Location = new System.Drawing.Point(12, 276);
+            this.btnGestionarServicios.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGestionarServicios.Name = "btnGestionarServicios";
+            this.btnGestionarServicios.Size = new System.Drawing.Size(339, 47);
+            this.btnGestionarServicios.TabIndex = 17;
+            this.btnGestionarServicios.Text = "GESTIONAR SERVICIOS";
+            this.btnGestionarServicios.UseVisualStyleBackColor = false;
+            this.btnGestionarServicios.Click += new System.EventHandler(this.btnGestionarServicios_Click);
+            // 
+            // picBoxLogo
+            // 
+            this.picBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("picBoxLogo.Image")));
+            this.picBoxLogo.Location = new System.Drawing.Point(12, 10);
+            this.picBoxLogo.Name = "picBoxLogo";
+            this.picBoxLogo.Size = new System.Drawing.Size(341, 149);
+            this.picBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picBoxLogo.TabIndex = 18;
+            this.picBoxLogo.TabStop = false;
+            // 
+            // lblProximosAEntregar
+            // 
+            this.lblProximosAEntregar.AutoSize = true;
+            this.lblProximosAEntregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblProximosAEntregar.ForeColor = System.Drawing.Color.White;
+            this.lblProximosAEntregar.Location = new System.Drawing.Point(359, 10);
+            this.lblProximosAEntregar.Name = "lblProximosAEntregar";
+            this.lblProximosAEntregar.Size = new System.Drawing.Size(352, 31);
+            this.lblProximosAEntregar.TabIndex = 22;
+            this.lblProximosAEntregar.Text = "PROXIMOS A ENTREGAR:";
+            // 
+            // btnGestionarArchivos
+            // 
+            this.btnGestionarArchivos.BackColor = System.Drawing.Color.DimGray;
+            this.btnGestionarArchivos.FlatAppearance.BorderSize = 0;
+            this.btnGestionarArchivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionarArchivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGestionarArchivos.ForeColor = System.Drawing.Color.White;
+            this.btnGestionarArchivos.Location = new System.Drawing.Point(14, 331);
+            this.btnGestionarArchivos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGestionarArchivos.Name = "btnGestionarArchivos";
+            this.btnGestionarArchivos.Size = new System.Drawing.Size(339, 47);
+            this.btnGestionarArchivos.TabIndex = 23;
+            this.btnGestionarArchivos.Text = "GESTIONAR ARCHIVOS";
+            this.btnGestionarArchivos.UseVisualStyleBackColor = false;
+            this.btnGestionarArchivos.Click += new System.EventHandler(this.btnGestionarArchivos_Click);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.ClientSize = new System.Drawing.Size(1073, 446);
+            this.Controls.Add(this.btnGestionarArchivos);
+            this.Controls.Add(this.lblProximosAEntregar);
+            this.Controls.Add(this.picBoxLogo);
+            this.Controls.Add(this.btnGestionarServicios);
             this.Controls.Add(this.dgvListaServicios);
             this.Controls.Add(this.btnAtender);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGestionarClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "FormPrincipal";
@@ -132,7 +196,9 @@ namespace Forms
             this.Text = "MundoPc";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -142,6 +208,10 @@ namespace Forms
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnAtender;
         private System.Windows.Forms.DataGridView dgvListaServicios;
+        private System.Windows.Forms.Button btnGestionarServicios;
+        private System.Windows.Forms.PictureBox picBoxLogo;
+        private System.Windows.Forms.Label lblProximosAEntregar;
+        private System.Windows.Forms.Button btnGestionarArchivos;
     }
 }
 

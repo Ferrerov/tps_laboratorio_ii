@@ -52,10 +52,10 @@ namespace Forms
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(12, 316);
+            this.btnSalir.Location = new System.Drawing.Point(12, 415);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(328, 47);
+            this.btnSalir.Size = new System.Drawing.Size(113, 47);
             this.btnSalir.TabIndex = 14;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -85,10 +85,10 @@ namespace Forms
             // 
             this.txtBoxDetalle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBoxDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBoxDetalle.Location = new System.Drawing.Point(393, 58);
+            this.txtBoxDetalle.Location = new System.Drawing.Point(158, 218);
             this.txtBoxDetalle.Multiline = true;
             this.txtBoxDetalle.Name = "txtBoxDetalle";
-            this.txtBoxDetalle.Size = new System.Drawing.Size(395, 251);
+            this.txtBoxDetalle.Size = new System.Drawing.Size(229, 84);
             this.txtBoxDetalle.TabIndex = 17;
             // 
             // cmbDispositivo
@@ -129,10 +129,10 @@ namespace Forms
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(460, 316);
+            this.btnConfirmar.Location = new System.Drawing.Point(131, 415);
             this.btnConfirmar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(328, 47);
+            this.btnConfirmar.Size = new System.Drawing.Size(256, 47);
             this.btnConfirmar.TabIndex = 21;
             this.btnConfirmar.Text = "CONFIRMAR";
             this.btnConfirmar.UseVisualStyleBackColor = false;
@@ -154,7 +154,7 @@ namespace Forms
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPrecio.ForeColor = System.Drawing.Color.White;
-            this.lblPrecio.Location = new System.Drawing.Point(12, 216);
+            this.lblPrecio.Location = new System.Drawing.Point(12, 322);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(127, 31);
             this.lblPrecio.TabIndex = 23;
@@ -165,7 +165,7 @@ namespace Forms
             this.lblEntrega.AutoSize = true;
             this.lblEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEntrega.ForeColor = System.Drawing.Color.White;
-            this.lblEntrega.Location = new System.Drawing.Point(12, 264);
+            this.lblEntrega.Location = new System.Drawing.Point(12, 370);
             this.lblEntrega.Name = "lblEntrega";
             this.lblEntrega.Size = new System.Drawing.Size(256, 31);
             this.lblEntrega.TabIndex = 24;
@@ -176,7 +176,7 @@ namespace Forms
             this.dtPickerEntrega.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtPickerEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtPickerEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtPickerEntrega.Location = new System.Drawing.Point(268, 269);
+            this.dtPickerEntrega.Location = new System.Drawing.Point(268, 375);
             this.dtPickerEntrega.Name = "dtPickerEntrega";
             this.dtPickerEntrega.Size = new System.Drawing.Size(119, 24);
             this.dtPickerEntrega.TabIndex = 26;
@@ -186,7 +186,7 @@ namespace Forms
             this.lblDetalle.AutoSize = true;
             this.lblDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDetalle.ForeColor = System.Drawing.Color.White;
-            this.lblDetalle.Location = new System.Drawing.Point(393, 24);
+            this.lblDetalle.Location = new System.Drawing.Point(12, 218);
             this.lblDetalle.Name = "lblDetalle";
             this.lblDetalle.Size = new System.Drawing.Size(143, 31);
             this.lblDetalle.TabIndex = 27;
@@ -195,7 +195,7 @@ namespace Forms
             // txtPrecio
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPrecio.Location = new System.Drawing.Point(218, 220);
+            this.txtPrecio.Location = new System.Drawing.Point(218, 326);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(169, 24);
             this.txtPrecio.TabIndex = 28;
@@ -205,7 +205,7 @@ namespace Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(800, 373);
+            this.ClientSize = new System.Drawing.Size(400, 476);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.lblDetalle);
             this.Controls.Add(this.dtPickerEntrega);
@@ -234,7 +234,7 @@ namespace Forms
         private System.Windows.Forms.Button btnSalir;
         public System.Windows.Forms.Label lblNombreCliente;
         private System.Windows.Forms.ComboBox cmbServico;
-        private System.Windows.Forms.TextBox textBox1;
+        //private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cmbDispositivo;
         public System.Windows.Forms.Label lblServicio;
         public System.Windows.Forms.Label lblDispositivo;

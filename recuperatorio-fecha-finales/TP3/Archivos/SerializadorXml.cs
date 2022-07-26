@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
+using Excepciones;
 
 namespace Archivos
 {
@@ -23,10 +24,8 @@ namespace Archivos
             }
             catch(Exception)
             {
-                //MessageBox.Show("Archivo guardado");
+                throw new ErrorArchivoException("Error al guardar el archivo");
             }
-
-            return false;
         }
 
         public bool Leer(string path, string nombre, out T obj)
@@ -43,8 +42,8 @@ namespace Archivos
             }
             catch(Exception)
             {
+                throw new ErrorArchivoException("Error al leer el archivo.");
             }
-            return false;
         }
     }
 }

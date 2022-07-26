@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forms", "Forms\Forms.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biblioteca", "Biblioteca\Biblioteca.csproj", "{F03DD22C-4926-46BC-A705-20E0EBF4753D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archivos", "Archivos\Archivos.csproj", "{04F15136-8F35-451C-86C5-C20A05356F0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Archivos", "Archivos\Archivos.csproj", "{04F15136-8F35-451C-86C5-C20A05356F0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\Excepciones.csproj", "{F403191E-FEDE-4539-B564-7699553813B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{04F15136-8F35-451C-86C5-C20A05356F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04F15136-8F35-451C-86C5-C20A05356F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04F15136-8F35-451C-86C5-C20A05356F0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F403191E-FEDE-4539-B564-7699553813B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F403191E-FEDE-4539-B564-7699553813B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F403191E-FEDE-4539-B564-7699553813B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F403191E-FEDE-4539-B564-7699553813B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

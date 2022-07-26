@@ -39,6 +39,7 @@ namespace Forms
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardarListado = new System.Windows.Forms.Button();
+            this.btnVerServicios = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,12 +61,11 @@ namespace Forms
             // 
             // txtBoxBuscar
             // 
-            this.txtBoxBuscar.Enabled = false;
             this.txtBoxBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBoxBuscar.Location = new System.Drawing.Point(151, 47);
             this.txtBoxBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBoxBuscar.Name = "txtBoxBuscar";
-            this.txtBoxBuscar.Size = new System.Drawing.Size(443, 37);
+            this.txtBoxBuscar.Size = new System.Drawing.Size(411, 37);
             this.txtBoxBuscar.TabIndex = 14;
             this.txtBoxBuscar.TextChanged += new System.EventHandler(this.txtBoxBuscar_TextChanged);
             // 
@@ -73,6 +73,7 @@ namespace Forms
             // 
             this.dgvListaClientes.AllowUserToAddRows = false;
             this.dgvListaClientes.AllowUserToDeleteRows = false;
+            this.dgvListaClientes.AllowUserToOrderColumns = true;
             this.dgvListaClientes.AllowUserToResizeColumns = false;
             this.dgvListaClientes.AllowUserToResizeRows = false;
             this.dgvListaClientes.BackgroundColor = System.Drawing.Color.Gray;
@@ -181,7 +182,7 @@ namespace Forms
             this.btnGuardarListado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarListado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGuardarListado.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarListado.Location = new System.Drawing.Point(255, 752);
+            this.btnGuardarListado.Location = new System.Drawing.Point(568, 43);
             this.btnGuardarListado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGuardarListado.Name = "btnGuardarListado";
             this.btnGuardarListado.Size = new System.Drawing.Size(301, 47);
@@ -190,6 +191,22 @@ namespace Forms
             this.btnGuardarListado.UseVisualStyleBackColor = false;
             this.btnGuardarListado.Click += new System.EventHandler(this.btnGuardarListado_Click);
             // 
+            // btnVerServicios
+            // 
+            this.btnVerServicios.BackColor = System.Drawing.Color.DimGray;
+            this.btnVerServicios.FlatAppearance.BorderSize = 0;
+            this.btnVerServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerServicios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnVerServicios.ForeColor = System.Drawing.Color.White;
+            this.btnVerServicios.Location = new System.Drawing.Point(254, 752);
+            this.btnVerServicios.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnVerServicios.Name = "btnVerServicios";
+            this.btnVerServicios.Size = new System.Drawing.Size(301, 47);
+            this.btnVerServicios.TabIndex = 23;
+            this.btnVerServicios.Text = "VER SERVICIOS";
+            this.btnVerServicios.UseVisualStyleBackColor = false;
+            this.btnVerServicios.Click += new System.EventHandler(this.btnVerServicios_Click);
+            // 
             // FormGestionarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -197,6 +214,7 @@ namespace Forms
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1187, 815);
+            this.Controls.Add(this.btnVerServicios);
             this.Controls.Add(this.btnGuardarListado);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblBuscar);
@@ -228,5 +246,6 @@ namespace Forms
         public System.Windows.Forms.Button btnSeleccionar;
         public System.Windows.Forms.Button btnSalir;
         public System.Windows.Forms.Button btnGuardarListado;
+        public System.Windows.Forms.Button btnVerServicios;
     }
 }
