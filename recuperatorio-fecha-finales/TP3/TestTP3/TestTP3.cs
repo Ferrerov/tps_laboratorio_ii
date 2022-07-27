@@ -8,7 +8,7 @@ namespace TestTP3
     public class TestTP3
     {
         [TestMethod]
-        public void RemoverElemento_CuandoElElementoNoExisteEnLaLista_DeberiaRetornarFalse()
+        public void EliminarElemento_CuandoElElementoNoExisteEnLaLista_DeberiaRetornarFalse()
         {
             //Arrange
             ListadoGenerico<Cliente> listado = new ListadoGenerico<Cliente>(0);
