@@ -1,5 +1,4 @@
-#tps_laboratorio_ii/recuperatorio-fecha-finales/TP3
-Se creo la clase ListadoGenerico utilizando generics, para facilitar el manejo de las listas de clientes y servicios y que el codigo quede mas limpio. 
-Se generaron los Test correspondientes 
-Se reestructuro completamente la seccion Gestionar Servicios, donde ahora hay dos dataGridView con los servicios pendientes/completados. 
-En lugar de guardar los ultimosId en memoria, ahora para mayor seguridad, se guardan en un archivo de texto en el directorio de la solucion.
+#tps_laboratorio_ii/recuperatorio-fecha-finales/TP4
+Se modifico el manejo de datos de la lista de clientes, ahora se gestiona con SQL
+Uso un delegado para agrupar e invocar tres metodos que uso repetidamente a lo largo del programa (DelegadoActualizarListado en formPrincipal)
+Metodo load del formPrincipal ahora es asíncrono, porque la carga de las listas en el datagridview demoraba la carga del programa
